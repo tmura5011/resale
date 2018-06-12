@@ -1,6 +1,10 @@
 from selenium import webdriver
 import sqlite3
 import re
+import sys
+
+sys.path.append("..")
+from util import amazon
 
 def log(file, str):
     file.write(str + "\n")
@@ -14,6 +18,7 @@ def confirm_amazon():
     #Amazon画面準備、ログイン
     amazonDriver = webdriver.Chrome("c:/drivers/chromedriver.exe")
     amazonDriver.implicitly_wait(waitSec)
+    amazon.amazon_login(amazonDriver, "tmura5011@gmail.com", "sanpomichi")
 #    amazon.amazon_login(amazonDriver, "hahaha1980@hotmail.co.jp", "cafe1980052")
 
     #ログファイル準備
